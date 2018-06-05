@@ -1,0 +1,427 @@
+<html>
+  <head>
+    <title>$NAME</title>
+    <style>
+
+      @media print {
+        html
+        {
+          -webkit-print-color-adjust: exact;
+        }
+      }
+
+      html
+      {
+        padding-top: 0px;
+      }
+
+      html, table, div, body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: .9em;
+      }
+
+      small
+      {
+        font-size: .5em;
+      }
+
+      caption
+      {
+        display: none;
+      }
+
+      .section
+      {
+        margin-bottom: 10px;
+        width: 98%;
+      }
+
+      .section.half
+      {
+        width: 48%;
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .section-header
+      {
+          text-transform: uppercase;
+          background-color: #CCC;
+          font-size: 1.1em;
+          padding: 4px;
+          font-weight: bold;
+          margin-bottom: 8px;
+          width: 100%;
+      }
+
+      .section-sub-header
+      {
+        text-transform: uppercase;
+        font-size: 1.0em;
+        font-weight: bold;
+      }
+
+      .box-container
+      {
+        width: 60px;
+        text-align: center;
+        display: inline-block;
+      }
+
+      .box
+      {
+        width: 50px;
+        height: 30px;
+        border: solid 1px black;
+        margin: 4px auto 4px auto;
+        line-height: 30px;
+        font-size: 1em;
+        overflow: hidden;
+      }
+
+      .inline-equation
+      {
+          vertical-align: top;
+          padding-top: 35px;
+          display: inline-block;
+      }
+
+      .equation-block
+      {
+        display: inline-block;
+        border: solid 1px #AAA;
+        padding: 10px 0px 10px 6px;
+        width: 100%;
+        margin-top: -8px;
+        border-top: none;
+      }
+
+      .recipe-details
+      {
+        width: 60%;
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .recipe-form
+      {
+        width: 38%;
+        display: inline-block;
+        vertical-align: top;
+        float: right;
+      }
+
+      div.hideColumn3 td:nth-of-type(3) {
+        display: none;
+      }
+
+      div.hideColumn3 th:nth-of-type(3) {
+        display: none;
+      }
+
+      div.hideColumn4 td:nth-of-type(4) {
+        display: none;
+      }
+
+      div.hideColumn4 th:nth-of-type(4) {
+        display: none;
+      }
+
+      div.hideColumn5 td:nth-of-type(5) {
+        display: none;
+      }
+
+      div.hideColumn5 th:nth-of-type(5) {
+        display: none;
+      }
+
+      div.temperature th:nth-of-type(3) b{
+        display: none;
+      }
+
+      div.temperature th:nth-of-type(3):after {
+        content: 'Temp';
+      }
+
+      div.time th:nth-of-type(4) b{
+        display: none;
+      }
+
+      div.time th:nth-of-type(4):after {
+        content: 'Time';
+      }
+
+      div.checkbox table{
+        border-collapse:separate;
+        border-spacing: 0em .2em;
+      }
+
+      div.checkbox tr {
+        padding-bottom: 11px;
+      }
+
+      div.checkbox td:nth-of-type(1):before {
+        content: "__";
+        background-image: url("checkbox.jpg");
+        background-repeat: no-repeat;
+        background-size: 10px 10px;
+      }
+
+      img.checkbox {
+        vertical-align: bottom;
+      }
+    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  </head>
+  <body>
+    <table style="width: 100%;">
+      <tr>
+        <td style="width: 70px;">
+          <img src="fullstack.png" width="60px" />
+        </td>
+        <td>
+          <h1 style="margin-top: 20px;">
+            $NAME <br/>
+            <small>$STYLE_NUMBER$STYLE_LETTER - $STYLE_NAME</small>
+          </h1>
+        </td>
+        <td>
+          <div style="background-color: $RGB_COLOR ; width: 60px; height: 60px; float: right;"></div>
+        </td>
+      </tr>
+    </table>
+
+    <div class="recipe-details">
+      <div class="section">
+        <div class="section-header">
+          Grain Bill <span style="float: right;">Total: $GRAIN_WEIGHT</span>
+        </div>
+        <div class="hideColumn3 hideColumn4 checkbox">
+          $MASH_INGREDIENTS
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          Mash
+        </div>
+        <div class="section-sub-header">
+          Steps
+        </div>
+        <div class="temperature time checkbox">
+          $MASH_STEPS
+        </div>
+        <br/>
+        <div class="section-sub-header">
+          Salt Additions
+        </div>
+        <div class="hideColumn3 hideColumn4 hideColumn5 checkbox">
+          $WATER_PREP
+        </div>
+        <br/>
+        <div class="section-sub-header">
+          Sparge Prep
+        </div>
+        <div>
+          <img src="checkbox.jpg" class="checkbox"/> $SPARGE_STEPS
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          Boil Steps
+        </div>
+        <div class="hideColumn3 hideColumn4 checkbox">
+          $BOIL_INGREDIENTS
+        </div>
+        <br/>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          Steep Hops
+        </div>
+        <div class="hideColumn3 hideColumn4 checkbox">
+          $STEEP_HOPS
+        </div>
+        <br/>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          Yeast Pitch
+        </div>
+        <div class="hideColumn3 hideColumn4 hideColumn5 checkbox">
+          $YEASTS
+        </div>
+        <br/>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          Final
+        </div>
+        <div class="equation-block">
+          <div class="box-container"/>
+            Pre-Boil Start
+            <div class="box"></div>
+            &nbsp;
+          </div>
+          <div class="box-container"/>
+            Boil Start
+            <div class="box"></div>
+            &nbsp;
+          </div>
+          <div class="box-container"/>
+            OG
+            <div class="box"></div>
+            $EST_OG
+          </div>
+          <span class="inline-equation">&nbsp;</span>
+          <div class="box-container"/>
+            Volume
+            <div class="box"></div>
+            Liters
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-form">
+      <div class="section">
+        <div class="section-header">
+          Mash Data
+        </div>
+        <div class="equation-block">
+          <div class="box-container"/>
+            Mash In Time
+            <div class="box"></div>
+            Time
+          </div>
+          <span class="inline-equation">&nbsp;</span>
+          <div class="box-container"/>
+            Mash Temperature
+            <div class="box"></div>
+            F&#176;
+          </div>
+          <span class="inline-equation">&nbsp;</span>
+          <div class="box-container"/>
+            Mash PH
+            <div class="box"></div>
+            PH
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          Sparge Data
+        </div>
+        <div class="equation-block">
+          <div class="box-container"/>
+            Vorlauf Start Time
+            <div class="box"></div>
+            Time
+          </div>
+          <span class="inline-equation">&nbsp;</span>
+          <div class="box-container"/>
+            Sparge Start Time
+            <div class="box"></div>
+            Time
+          </div>
+          <span class="inline-equation">&nbsp;</span>
+          <div class="box-container"/>
+            Sparge Stop Time
+            <div class="box"></div>
+            Time
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          Pre Boil Calculation
+        </div>
+        <div class="equation-block">
+          <div class="box-container"/>
+            Pre Boil Volume
+            <div class="box"></div>
+            $DISPLAY_BOIL_SIZE
+          </div>
+          <span class="inline-equation">&times;</span>
+          <div class="box-container"/>
+            Pre Boil Gravity
+            <div class="box"></div>
+            $PRE_BOIL_OG
+          </div>
+          <span class="inline-equation">=</span>
+          <div class="box-container"/>
+            Weight of Sugar
+            <div class="box"></div>
+            KG
+          </div>
+          <br/>
+          <br/>
+          <div class="box-container"/>
+            Weight of Sugar
+            <div class="box"></div>
+            KG
+          </div>
+          <span class="inline-equation">&divide;</span>
+          <div class="box-container"/>
+            Expected Gravity
+            <div class="box">%$EST_OG</div>
+            Plato
+          </div>
+          <span class="inline-equation">=</span>
+          <div class="box-container"/>
+            Target Volume
+            <div class="box"></div>
+            Liters
+          </div>
+          <br/>
+          <br/>
+          <div class="box-container"/>
+            Pre - Target Volume
+            <div class="box"></div>
+            Liters
+          </div>
+          <span class="inline-equation">&divide;</span>
+          <div class="box-container"/>
+            Boil Off Rate
+            <div class="box">$EQUIPMENT.BOIL_OFF</div>
+            Liters/Hr
+          </div>
+          <span class="inline-equation">=</span>
+          <div class="box-container"/>
+            Needed Boil Duration
+            <div class="box"></div>
+            Hours
+          </div>
+          <br/>
+          <br/>
+          <div class="box-container"/>
+            Needed Boil Duration
+            <div class="box">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&times; 60</div>
+            Hours
+          </div>
+          <span class="inline-equation">-</span>
+          <div class="box-container"/>
+            Original Boil Duration
+            <div class="box">$BOIL_TIME</div>
+            Minutes
+          </div>
+          <span class="inline-equation">=</span>
+          <div class="box-container"/>
+            Additional Boil Time
+            <div class="box"></div>
+            Minutes
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </body>
+</html>
